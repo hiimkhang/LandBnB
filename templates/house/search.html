@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+    {% block page_title %}
+        Search
+    {% endblock page_title %}
+    {% block search-bar %}
+    {% endblock search-bar %}
+    {% block content %}
+    <h2>Search!</h2>
+    <form method="get" action="{% url "houses:search" %}">
+        {% comment %} <div>
+            <label for="city">City</label>
+            <input value="{{city}}" id="city" name="city" placeholder="Search by city" type="text">
+        </div>
+        <div>
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="" {% if s_countries == "" %}selected{% endif %}>
+                    Any country
+                </option>
+                {% for country in countries %}
+                    <option value="{{country.code}}" {% if  country.code == s_country %}selected{% endif %}>
+                    {{country.name}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        {% comment %} <div>
+            <label for="price">Price</label>
+            <input value="{{price}}" id="price" name="price" placeholder="Search by price" type="text">
+        </div> {% endcomment %}
+        {% comment %} <div>
+            <label for="house_type">House types</label>
+            <select id="house_type" name="house_type">
+                <option value="0" {% if s_house_type == 0 %}selected{% endif %}>
+                    Any type
+                </option>
+                {% for house_type in house_types %}
+                    <option value="{{house_type.pk}}" {% if s_house_type == house_type.pk %}selected{% endif %}>
+                    {{house_type.name}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <h3>Amenities</h3>
+            <ul>
+                {% for amenity in amenities %}
+                    <li>
+                        <label for="a_{{amenity.pk}}">{{amenity.name}}</label>
+                        <input
+                        type="checkbox"
+                        value="{{amenity.pk}}"
+                        name="amenities"
+                        id="a_{{amenity.pk}}"
+                        {% if amenity.pk|slugify in s_amenities %}
+                            checked 
+                        {% endif %}
+                        />                        
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h3>Facilities</h3>
+            <ul>
+                {% for facility in facilities %}
+                    <li>
+                        <label for="f_{{facility.pk}}">{{facility.name}}</label>
+                        <input
+                        type="checkbox"
+                        value="{{facility.pk}}"
+                        name="facilities"
+                        id="f_{{facility.pk}}"
+                        {% if facility.pk|slugify in s_facilities %}
+                            checked
+                        {% endif %}                          
+                        />                        
+                    </li>
+                {% endfor %}
+            </ul>
+        </div> {% endcomment %}
+            {{form}}
+        <button>Search</button>
+        <h3>Results</h3>
+        {%for house in houses%}
+            <h4>{{house.name}}</h4>
+        {%endfor%}
+    </form>
+    {% endblock content %}
