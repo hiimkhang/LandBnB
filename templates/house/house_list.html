@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+    {%block page_title%}
+        Home
+    {%endblock page_title%}
+
+    {%block content%}
+        {% for house in object_list %}
+            <h1>
+                <a href="houses/{{house.pk}}"> Name: {{house.name}} -- Price: {{house.price}}$</a>
+            </h1>
+        {% endfor %}
+        <h5>
+            {% if page_obj.has_previous %}
+                <a href="?page={{page_obj.previous_page_number}}">Prev</a>
+            {% endif %}
+            Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+            {% if page_obj.has_next %}
+                <a href="?page={{page_obj.next_page_number}}">Next</a>
+            {% endif %}
+        </h5>
+        <h5> {{now}} </h5>
+    {%endblock content%}
