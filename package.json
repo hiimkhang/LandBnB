@@ -1,0 +1,38 @@
+{
+  "name": "landbnb",
+  "version": "1.0.0",
+  "description": "Hospitality house rental webapp",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.57.1",
+    "tailwindcss": "^3.2.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiimkhang/LandBnB.git"
+  },
+  "keywords": [
+    "house",
+    "hospitality",
+    "django",
+    "tailwind"
+  ],
+  "author": "khang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hiimkhang/LandBnB/issues"
+  },
+  "homepage": "https://github.com/hiimkhang/LandBnB#readme",
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
+}
