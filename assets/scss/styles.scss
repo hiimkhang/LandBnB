@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+.reset {
+  all: initial;  /* reset all styles to their default values */
+}
+
 .search-box {
   transition: box-shadow 0.2s linear;
 }
@@ -26,7 +30,7 @@
 input,
 textarea,
 select {
-  @apply rounded-sm py-5 font-light text-lg w-full text-left border border-gray-600 px-5;
+  @apply rounded-sm font-light text-lg w-full text-left border border-gray-600;
   &:focus {
     @apply outline-none border-teal-500;
   }

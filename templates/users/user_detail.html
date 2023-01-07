@@ -3,7 +3,7 @@
     {{user_obj.first_name}}'s Profile
 {% endblock page_title %}
 {% block content %}
-<div class="h-75vh">
+<div class="">
     <div class="container lg:w-5/12 md:w-1/2 xl:w-1/4 mx-auto my-10 flex flex-col items-center border p-6 border-gray-400 ove">
         {% include "mixins/user_avatar.html" with user=user_obj %}
         <div class="flex items-center">
@@ -12,7 +12,17 @@
                 <i class="fas fa-check-circle text-teal-400 ml-1"></i>
             {% endif %}
         </div>
-        <span class="text-lg mb-5">{{user.bio}}</span>
+
+        <!-- user information -->
+        <div class='flex flex-col items-start'>
+            <span class="text-lg mb-5">{{user_obj.bio}}</span>    
+            <span class="text-lg mb-5">Email: {{user_obj.email}}</span>
+            <span class="text-lg mb-5">First Name: {{user_obj.first_name}}</span>
+            <span class="text-lg mb-5">Last Name: {{user_obj.last_name}}</span>
+            <span class="text-lg mb-5">Language: {{user_obj.language}}</span>
+            <span class="text-lg mb-5">Gender: {{user_obj.gender}}</span>
+            <span class="text-lg mb-5">Birthday: {{user_obj.birthday}}</span>
+        </div>
         {% if user == user_obj %}
         <a href="{% url 'users:update' %}" class="btn-link">Edit Profile</a>
         {% endif %}        

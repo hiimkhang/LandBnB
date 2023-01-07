@@ -5,16 +5,16 @@
     {% endblock page_title %}
 
     {% block content %}
-        <div class="container mx-auto pb-10">
+        <div class="w-full">
             <div class="rounded-xl bg-gray-800 -mx-40 h-50vh mt-32 mb-24 bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80)"></div>
             
-            <div class="flex flex-wrap -mx-40 mb-10">
+            <div class="flex flex-wrap mb-10">
                 {% for house in houses %}
                     {% include 'mixins/house_card.html' with house=house %}
                 {% endfor %}
             </div>
     
-            <div class="flex items-center justify-center mx-auto container">
+            <div class="flex items-center justify-center mx-2">
                 {% if page_obj.has_previous %}
                     <a href="?page={{page_obj.previous_page_number}}" class="text-teal-500">
                         <i class="fas fa-arrow-left fa-lg"></i>
