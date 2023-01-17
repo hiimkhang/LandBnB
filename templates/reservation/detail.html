@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="py-10 px-5">
+            <div class="py-10 px- w-full">
                 {% if reservation.status != 'canceled' %}
                     {% if reservation.status == 'confirmed' and reservation.is_finished %}
                         <span class="font-medium text-2xl text-center w-full block mb-5">Leave your review</span>
@@ -43,12 +43,14 @@
                             <button class="btn-link mt-5">Submit review</button>
                         </form>
                     {% else %}
+                        <div class='flex flex-rol justify-around'>
                         {% if reservation.status == 'pending' %}
-                            <a href="{% url 'reservations:edit' reservation.pk 'cancel' %}" class="btn-link block px-5">Cancel reservation</a>
+                            <a href="{% url 'reservations:edit' reservation.pk 'cancel' %}" class="btn-link w-1/4">Cancel reservation</a>
                             {% if reservation.house.host == user  %}
-                                <a href="{% url 'reservations:edit' reservation.pk 'confirm' %}" class="btn-link block px-3 mb-5">Confirm reservation</a>
+                                <a href="{% url 'reservations:edit' reservation.pk 'confirm' %}" class="btn-link-but-blue w-1/4">Confirm reservation</a>
                             {% endif %}
                         {% endif %}
+                        </div>
                     {% endif %}
                 {% endif %}
             </div>
